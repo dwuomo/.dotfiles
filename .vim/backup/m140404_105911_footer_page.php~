@@ -1,0 +1,54 @@
+<?php
+
+class m140404_105911_footer_page extends CDbMigration
+{
+	/*public function up()*/
+	//{
+	
+       /* }*/
+
+	/*public function down()*/
+	//{
+		//}
+
+	public function safeUp()
+	{
+		/*$this->createTable('footer', array(*/
+			//'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+			//'id_parent' => 'int(11)',
+			//'nombre' => 'varchar(200)',
+			//'img' => 'varchar(250)',
+			//'texto' => 'varchar(250)',
+			//'PRIMARY KEY (`id`)'
+		/*));*/
+
+		//$this->addForeignKey('fk_footer_1','footer', 'id_parent', 'footer', 'id');
+
+		$this->insert('cms_template', array(
+			'template' => 'footer'
+		));
+
+       /*         $this->createTable('cms_content_app_lang_footer', array(*/
+			//'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+			//'id_content_app' => 'int(11)',
+			//'id_footer' => 'int(11)',
+			//'id_language' => 'int(11)',
+			//'order' => 'int(11)',
+			//'PRIMARY KEY (`id`)'
+		/*));*/
+
+		//$this->addForeignKey('fk_langFooter_1', 'cms_content_app_lang_footer',  'id_content_app', 'cms_content_app', 'id');
+		//$this->addForeignKey('fk_langFooter_2', 'cms_content_app_lang_footer','id_footer', 'footer', 'id');
+		//$this->addForeignKey('fk_langFooter_3','cms_content_app_lang_footer', 'id_language', 'language', 'id');
+	}
+
+	public function safeDown()
+	{	
+       /*         $this->dropforeignKey('fk_footer_1', 'footer');*/
+		//$this->dropTable('footer');
+		//$this->delete('cms_template', array(
+			//'template' => 'footer'
+		//));
+
+	}
+}

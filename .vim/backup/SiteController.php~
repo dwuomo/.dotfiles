@@ -1,0 +1,243 @@
+<?php
+
+class SiteController extends Controller {
+    /*
+     * Example to change catalog translations
+     *
+      public function init()
+      {
+      Yii::app()->configure
+      (
+      array
+      (
+      'components'=>array(
+      "messages" => array(
+      "catalog" => 'prueba'
+      )
+      )
+      )
+      );
+      } */
+
+    /**
+     * Declares class-based actions.
+     */
+    public function actions() {
+
+        return array(
+            // captcha action renders the CAPTCHA image displayed on the contact page
+            'captcha' => array(
+                'class' => 'CCaptchaAction',
+                'backColor' => 0xFFFFFF,
+            ),
+            // page action renders "static" pages stored under 'protected/views/site/pages'
+            // They can be accessed via: index.php?r=site/page&view=FileName
+            'page' => array(
+                'class' => 'CViewAction',
+            )
+        );
+    }
+
+    public function accessRules() {
+        return array(
+            array('allow', // allow users to access all actions
+                'actions' => array('contact', 'error', 'index', 'captcha', 'test'),
+                'users' => array('*'),
+            ),
+            array('allow', // allow authenticated users to access all actions
+                'actions' => array('profile'),
+                'users' => array('@'),
+            ),
+            array('deny'),
+        );
+    }
+
+    /**
+     * This is the default 'index' action that is invoked
+     * when an action is not explicitly requested by users.
+     */
+    public function actionIndex() {
+        Yii::app()->language = 'tr';
+        print Yii::app()->language;
+
+        $usuario = Usuarios::model()->findByPk(30);
+        $arraySession = array(
+            'id_order' => '1',
+            'user_id' => '6785',
+            'personal_data' => array(
+                'name' => 'enrique',
+                'surname' => 'castellano',
+                'email' => 'enriquecastellano@packlink.es'
+            ),
+            'priority' => '18.00',
+            'paymentmethod_id' => '8',
+            'voucher_id' => '71',
+            'order_lines' => array(
+                '0' => array(
+                    'type' => 'pedido',
+                    'reference' => 'ES134567RTY',
+                    'cod' => '17.00',
+                    'id_service' => '1',
+                    'amount' => '17.00',
+                    'taxes' => array(
+                        '0' => array(
+                            'concept' => 'IVA',
+                            'percentage' => '21'
+                        ),
+                        '1' => array(
+                            'concept' => 'Lujo',
+                            'percentage' => '7'
+                        )
+                    ),
+                    'service_data' => array(
+                        'name' => 'UPS ESTANDARD'
+                    ),
+                    'parcels' => array(
+                        '0' => array(
+                            'weight' => '0.5',
+                            'length' => '10',
+                            'height' => '10',
+                            'width' => '10'
+                        ),
+                        '1' => array(
+                            'weight' => '0.7',
+                            'length' => '12',
+                            'height' => '12',
+                            'width' => '12'
+                        )
+                    ),
+                    'insurance' => array(
+                        'coverage' => '1000',
+                        'amount' => '17.90'
+                    ),
+                    'extra_charges' => array(
+                        '0' => array(
+                            'concept' => 'priority',
+                            'amount' => '0.67'
+                        )
+                    ),
+                    'customer_reference' => '12RT6789',
+                    'voucher_id' => '71',
+                    'collection_address' => array(
+                        'id' => '123',
+                        'name' => 'juan',
+                        'surname' => 'cabo',
+                        'email' => 'jccabo@test.php',
+                        'phone' => '999999999',
+                        'zip_code' => '28001',
+                        'location_id' => '1769'
+                    ),
+                    'delivery_address' => array(
+                        'id' => '123',
+                        'name' => 'juan',
+                        'surname' => 'cabo',
+                        'email' => 'jccabo@test.php',
+                        'phone' => '999999999',
+                        'zip_code' => '28001',
+                        'location_id' => '1769'
+                    ),
+                    'invoice_address' => array(
+                        'id' => '123',
+                        'name' => 'juan',
+                        'surname' => 'cabo',
+                        'email' => 'jccabo@test.php',
+                        'phone' => '999999999',
+                        'zip_code' => '28001',
+                        'location_id' => '1769'
+                    ),
+                    'collection_date' => '2013-11-11',
+                    'collection_strip' => '10:00 - 14:00'
+                ),
+                '1' => array(
+                    'type' => 'priority',
+                    'concept' => 'PacklinkPriorityService',
+                    'amount' => '0.98',
+                    'taxes' => array(
+                        '0' => array(
+                            'concept' => 'IVA',
+                            'percentage' => '21'
+                        )
+                    )
+                ),
+                '2' => array(
+                    'type' => 'paymentMethod',
+                    'concept' => 'PaypalCharge',
+                    'amount' => '0.83',
+                    'taxes' => array()
+                )
+            )
+        );
+
+        $location = PcEs::model()->findAll(array('condition' => 'codpostal = 01118'));
+        Yii::app()->event->load(EventTypes::TEST, new CEvent($this));
+
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('index', array('usuario' => $usuario, 'location' => $location));
+    }
+
+    /**
+     * This is the action to handle external exceptions.
+     */
+    public function actionProfile() {
+        $className = ActionTestType;
+        $form = new $className;
+        // collect user input data
+        if (isset($_POST[$className])) {
+            $form->attributes = $_POST[$className];
+            // validate user input and redirect to the previous page if valid
+            if ($form->validate() && $form->save())
+                $this->redirect('/site/index');
+        }
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('profile', array('model' => $form));
+    }
+
+    /**
+     * This is the action to handle external exceptions.
+     */
+    public function actionError() {
+        if ($error = Yii::app()->errorHandler->error) {
+            if (Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+            {
+               // Yii::app()->orderSessionManager->restoreSession();
+                $this->render('error', $error);
+            }
+        }
+    }
+
+    /**
+     * Displays the contact page
+     */
+    public function actionContact() {
+        $model = new ContactForm;
+        if (isset($_POST['ContactForm'])) {
+            $model->attributes = $_POST['ContactForm'];
+            if ($model->validate()) {
+                $name = '=?UTF-8?B?' . base64_encode($model->name) . '?=';
+                $subject = '=?UTF-8?B?' . base64_encode($model->subject) . '?=';
+                $headers = "From: $name <{$model->email}>\r\n" .
+                        "Reply-To: {$model->email}\r\n" .
+                        "MIME-Version: 1.0\r\n" .
+                        "Content-Type: text/plain; charset=UTF-8";
+
+                mail(Yii::app()->params['adminEmail'], $subject, $model->body, $headers);
+                Yii::app()->user->setFlash('contact', __('Thank you for contacting us. We will respond to you as soon as possible.'));
+                $this->refresh();
+            }
+        }
+        $this->render('contact', array('model' => $model));
+    }
+
+    /**
+     * Este método sirve para realizar laboratorios de código
+     * @return [type] [description]
+     */
+    public function actionTest() {
+	    $this->render('test'); 
+    }
+
+}

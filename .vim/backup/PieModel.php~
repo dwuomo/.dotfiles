@@ -1,0 +1,12 @@
+<?php
+
+class PieModel extends CFormModel implements ModelsCMSInterface {
+
+    public $tableName = 'Footer';
+
+    public function getAssociated($id, $idLanguage) {
+	    $result =  '';  
+	    return $result;
+    }
+
+}

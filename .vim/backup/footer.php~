@@ -1,0 +1,142 @@
+<div id="cajaLogosPie">
+
+</div>
+
+<div id="cajaMarronPie">
+
+    <div id="contenedorCajaMarronPie">
+	<img src="/images/app/<?= APP ?>/logos-transportistas_tira.png?v=00093" alt="">
+	<div class="news">
+	    <!--[if (IE 7)|(IE 6)]>
+	    <style>
+		.newLargo{display:none;}
+	    </style>
+	    <![endif]-->
+	    <div class="newLargo">
+		<ul id="newsticker_1" class="newsticker">
+		    <li><?=__("¡Ofrecemos contra-reembolso! Servicio disponible para envíos dentro de España y a destinos europeos")?></li>
+		    <li><?=__("¿Sabe que con PackLink puede enviar desde Europa a España? ¡Pruebe nuestros servicios de importación ahora!")?></li>
+		    <!-- <li><a href="./usuario/registro/" title="Registro"><?=__("Regístrese ahora y podrá beneficiarse de ofertas y ventajas adicionales. ¡Es rápido y gratuito!")?></a></li> -->
+		</ul>
+	    </div>
+
+	</div>
+
+	<div id="lineaEnlaces"></div>
+	<div id="contenedorListas" class="">
+	    <div id="listaEuropa" class="textoGris12Claro">
+		<span class="internacional">
+		<a href=""><?=__('Envíos populares - Europa')?></a>
+		</span><br><br>
+		<h3><a title="Envios de paquetes a Alemania" href="http://www.packlink.es/es/enviar-paquete-a-alemania/"><?=__('Envios de paquetes a Alemania')?>/a></h3>
+		    <h3><a title="Envios de paquetes a Francia" href="http://www.packlink.es/es/enviar-paquete-a-francia/">Envios de paquetes a Francia</a></h3>
+		    <h3><a title="Envios de paquetes a Italia" href="http://www.packlink.es/es/enviar-paquete-a-italia/">Envios de paquetes a Italia</a></h3>
+		    <h3><a title="Envios de paquetes a Polonia" href="http://www.packlink.es/es/enviar-paquete-a-polonia/">Envios de paquetes a Polonia</a></h3>
+		    <h3><a title="Envios de paquetes a Reino Unido" href="http://www.packlink.es/es/enviar-paquete-a-reino-unido/">Envios de paquetes a Reino Unido</a></h3>
+		</div>
+
+	    <div id="listaInternacional" class="textoGris12Claro">
+		<span class="internacional">
+		<a href="http://www.packlink.es/es/envios-internacionales/" title="Envíos populares - Internacional"><?=__('Envíos populares - Internacional')?></a> 
+		</span><br><br>
+		<h3> <a title="Envios de paquetes a EEUU" href="http://www.packlink.es/es/enviar-paquete-a-estados-unidos/">Envios de paquetes a EEUU</a> </h3>
+		<h3> <a title="Envios de paquetes a México" href="http://www.packlink.es/es/enviar-paquete-a-mexico/">Envios de paquetes a México</a> </h3>
+		<h3> <a title="Envios de paquetes a Colombia" href="http://www.packlink.es/es/enviar-paquete-a-colombia/">Envios de paquetes a Colombia</a> </h3>
+		<h3> <a title="Envios de paquetes a China" href="http://www.packlink.es/es/enviar-paquete-a-china/">Envios de paquetes a China</a> </h3>
+		<h3> <a title="Envios de paquetes a Argentina" href="http://www.packlink.es/es/enviar-paquete-a-argentina/">Envios de paquetes a Argentina</a> </h3>
+	    </div>
+
+	    <div id="listaZona" class="textoGris12Claro">
+	    <span class="texto12TeXGyreAdventorRegularBlanco"><?=__('Envíos internacionales')?></span><br><br>
+		<h3><a title="Envios a Europa" href="http://www.packlink.es/es/envios-a-europa/">Envios a Europa</a></h3>
+		<h3><a title="Envios a América del Norte" href="http://www.packlink.es/es/envios-a-america-del-norte/">Envios a América del Norte</a></h3>
+		<h3><a title="Envios a América del Sur" href="http://www.packlink.es/es/envios-a-america-del-sur/">Envios a América del Sur</a></h3>
+		<h3><a title="Envios a Oceanía" href="http://www.packlink.es/es/envios-a-oceania/">Envios a Oceanía</a></h3>
+		<h3><a title="Envios a Asia" href="http://www.packlink.es/es/envios-a-asia/">Envios a Asia</a></h3>
+		<h3><a title="Envios a África" href="http://www.packlink.es/es/envios-a-africa/">Envios a África</a></h3>
+	    </div>
+
+	    <div id="listaHerramientas" class="textoGris12Claro">
+	    <span class="texto12TeXGyreAdventorRegularBlanco"><?=__('Herramientas')?></span><br><br>
+
+
+		<h3><a href="{lang_routes[envios/envio-de-paquetes/]}" title="Envío de paquetes">Envío de paquetes</a></h3>
+		<h3><a href="{lang_routes[buscar-el-mejor-precio/]}" title="Buscador de envíos">Buscador de envíos</a></h3>
+		<h3><a href="{lang_routes[seguimiento-envios/]}" title="Seguimiento de envíos">Seguimiento de envíos</a></h3>
+		<h3><a href="{lang_routes[calculo-del-peso-volumetrico/]}" title="Calcular el peso volumétrico">Calcular el peso volumétrico</a></h3>
+		<h3><a href="{lang_routes[recomendaciones-embalaje/]}" title="Consejos de embalaje">Consejos de embalaje</a></h3>
+		<h3><a href="{lang_routes[mensajeria-%s/],españa}" title="Mensajerías en España">Mensajerías en España</a></h3>
+		<h3><a href="{lang_routes[contacte/]}" title="Ayuda On-Line">Ayuda On-Line</a></h3>
+		<h3><a href="{lang_routes[trabaja-con-nosotros/]}" title="trabaja con nosotros">Trabaja con nosotros</a></h3>
+
+	    </div>
+
+	    <div id="listaAcerca" class="textoGris12Claro">
+	    <span class="texto12TeXGyreAdventorRegularBlanco"><?=__('Acerca de nosotros')?></span><br><br>
+
+		<h3><a href="{lang_routes[quienes-somos/]}" title="Quienes somos">Quienes somos</a></h3>
+		<h3><a href="{lang_routes[agencias-de-transporte/]}" title="Agencias de Transporte">Agencias de Transporte</a></h3>
+		<h3><a href="{lang_routes[preguntas-frecuentes/]}" title="Preguntas frecuentes">Preguntas frecuentes</a></h3>
+		<h3><a href="{lang_routes[contacte/]}" title="Contacte con nosotros">Contacte con nosotros</a></h3>
+		<h3><a href="{lang_routes[terminos-condiciones/]}" title="Términos y condiciones">Términos y condiciones</a></h3>
+		<h3><a href="{lang_routes[politica/]}" title="Política de privacidad">Política de privacidad</a></h3>
+		<h3><a href="{lang_routes[opinion-cliente/]}" title="Déjenos su opinión">Déjenos su opinión</a></h3>
+
+		<h3><a href="{lang_routes[blog/]}" title="Blog">Blog</a></h3>
+	    </div>
+	</div>
+    </div>
+
+</div>
+
+<div id="cajaNegraPie">
+
+    <div id="contenedorCajaNegraPie">
+
+	<div class="cajaCopy">
+
+
+	    <div class="footerSociales"><a href="http://blog.packlink.es//feed/" title="PackLink Ãºltimas noticias en RSS"><img src="/images/sociales/frss.png" alt="RSS"></a></div>
+	    <div class="footerSociales"><a href="http://plus.google.com/117813823411210847642/" title="PackLink en Google+"><img src="/images/sociales/fgoogle.png" alt="google plus"></a></div>
+	    <div class="footerSociales"><a href="http://www.linkedin.com/company/2311968?trk=tyah" title="PackLink en Linkedin"><img src="/images/sociales/flinkedin.png" alt="linkedin"></a></div>
+	    <div class="footerSociales"><a href="http://twitter.com/PackLink_esp" title="PackLink en Twitter"><img src="/images/sociales/ftwitter.png" alt="twitter"></a></div>
+	    <div class="footerSociales"><a href="http://www.facebook.com/pages/PackLinkes/184468478252142" title="PackLink en Facebook"><img src="/images/sociales/ffacebook.png" alt="facebook"></a></div>
+
+
+	    <span class="texto12TeXGyreAdventorRegularAzulBrillante derechosReservaos"><?=__('© 2013 PackLink.es - todos los derechos reservados - CIF: B83357863')?></span>
+
+
+
+	    <div class="cajaTarjetas"><img src="/images/<?= APP ?>/tarjetas.png" alt="Tarjetas"></div>
+	</div>
+
+	<div class="container_2">
+	    <div class="cajaDescuento">
+	    <div class="textoCajaDescuento"><?=__('Recibir noticias y descuentos')?></div>
+		<div class="textoCajainput"><input id="cajaEmail" name="cajaEmail" type="text" size="22" placeholder="Introduzca su email" style="outline: none;"></div>
+		<div class="cajaPlay" id="buttonDescuentos"><img src="/images/play.png" width="16" height="16" title="Pulse para validar su email" alt="Pulse para validar su email" style="position:relative;z-index:100000"></div>
+	    </div>
+
+
+	    <div id="listaPieNegra">
+
+		<ul>
+		    <li><a href="{lang_routes[terminos-condiciones/]}" title="Términos y condiciones">Términos y condiciones</a></li>
+		    <li><a href="{lang_routes[politica/]}" title="Política de privacidad">Política de privacidad</a></li>
+
+		    <li><a href="{lang_routes[recomendaciones-embalaje/]}" title="Consejos de embalaje">Consejos de embalaje</a></li>
+		    <li><a href="{lang_routes[mapa-sitio/]}" title="Sitemap">Mapa del sitio</a></li>
+		    <li><a href="http://ayuda.packlink.es" title="Preguntas frecuentes">FAQ</a></li>
+		    <li><a href="{lang_routes[contacte/]}" title="Contacte con nosotros">Contacto</a></li>
+		</ul>
+
+	    </div>
+	</div>
+	<div class="baseline">
+	<?=__('Envío de paquetes con las mejores empresas de paquetería y mensajería. Confíe en PackLink para enviar paquetes nacionales e internacionales al mejor precio.')?>
+	</div>
+
+    </div>
+    <div class="cookieInfo" id ='cookieNewPolicyInfoDiv'><?=__('Esta página web utiliza cookies. Al continuar navegado, aceptas el uso que hacemos de las mismas.')?> <a href='http://www.packlink.es/es/politica/#C' target ='_blank'><?=__('Más información')?></a>     <a onclick='closeCookieInfoDiv();'><?=__('[x cerrar]')?></a></div>
+</div>
+
