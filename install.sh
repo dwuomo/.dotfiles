@@ -12,5 +12,6 @@ ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.bash_aliases ~/.bash_aliases
 echo "-------- done! ---------"
 
+cd  ~/.dotfiles/
 git submodule init
 git submodule update
