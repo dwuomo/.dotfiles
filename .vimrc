@@ -11,22 +11,31 @@ nnoremap <left> :wincmd h<cr>
 nnoremap <right> :wincmd l<cr>
 nnoremap <down> :wincmd j<cr>
 
+nnoremap <C-F> :wincmd h<cr>
+nnoremap <C-G> :wincmd l<cr>
+
 let mapleader = ","
 let g:neocomplcache_enable_at_startup = 1
+
 
 execute pathogen#infect()
 filetype plugin indent on
 filetype plugin on
 
-colorscheme morning 
+colorscheme evening 
 
 
 set number
+set clipboard+=unnamed
+set expandtab
+set tabstop=4
+
 " Nerdtree -----------------------------------------------------------------
 "{{{
 map <tab> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.pyc$']
 let NERDTreeMapActivateNode='<space>'
+let NERDTreeShowBookmarks=1
 "}}}
 "
 " BASICS ------------------------------------------------------------------
@@ -39,29 +48,37 @@ nnoremap e :Errors<cr>
 nnoremap <C-W> :q<CR>
 nnoremap <C-S> :w<CR>
 inoremap <C-S> <Esc>:w<CR>
-inoremap <C-S> <Esc><C-S>
+nnoremap q zt
+nnoremap <c-a> ggVG
+nnoremap <c-cr> :tjump<CR>
 
 " BUFFERGATOR -------------------------------------------------------------
 
 " backup to ~/.tmp
- set backup
- set backupdir=~/.vim/backup,~/.backup,~/backup,/var/tmp,/tmp
- set backupskip=/tmp/*,/private/tmp/*
- set directory=~/.vim/backup,~/.backup,~/backup,/var/tmp,/tmp
- set writebackup
+set backup
+set backupdir=~/.vim/backup,~/.backup,~/backup,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim/backup,~/.backup,~/backup,/var/tmp,/tmp
+set writebackup
 
- if exists("+undofile")
-" undofile - This allows you to use undos after exiting and restarting
-"" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-"" :help undo-persistence
-"" This is only present in 7.3+
-      if isdirectory($HOME . '/.vim/undo') == 0
-         :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-       endif
-       set undodir=./.vim-undo//
-       set undodir+=~/.vim/undo//
-       set undofile
- endif
+if exists("+undofile")
+        " undofile - This allows you to use undos after exiting and restarting
+        "" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+        "" :help undo-persistence
+        "" This is only present in 7.3+
+        if isdirectory($HOME . '/.vim/undo') == 0
+                :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+        endif
+        set undodir=./.vim-undo//
+        set undodir+=~/.vim/undo//
+        set undofile
+endif
 
- nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
 vnoremap <c-c> "+y
+vnoremap < <gv
+vnoremap > >gv
+
+" CTAGS " --------------------------------------------------------------
+set tags=~/tags
+
