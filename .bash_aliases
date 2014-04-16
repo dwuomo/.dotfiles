@@ -1,6 +1,6 @@
 #General Conf
-user='dwuomo'
-current_project="old.dev"
+user='joaquin'
+current_project="packlink.dev"
 
 #Current project
 alias p='cd ~/sites/'$current_project'/httpd/'
@@ -12,11 +12,11 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias c='cd'
 alias descargas='cd /home/'$user'/Descargas'
+alias escritorio='cd /home/'$user'/Escritorio'
 
 
 #Bash
 alias cls='clear'
-alias ll='ls -la'
 
 #log
 alias apalog='tail -f /var/log/apache2/error.log'
@@ -33,8 +33,8 @@ function bk() {
 }
 
 #Yii
-alias mc='php /home/'$user'/sites/'$current_project'/httpd/app/yiic migrate create'
-alias dp='php /home/'$user'/sites/'$current_project'/httpd/app/yiic configprojectdeploy create'
+alias mcreate='php /home/'$user'/sites/'$current_project'/httpd/app/yiic migrate create'
+alias deploy='php /home/'$user'/sites/'$current_project'/httpd/app/yiic configprojectdeploy create'
 alias m='php /home/'$user'/sites/'$current_project'/httpd/app/yiic migrate'
 alias down='php /home/'$user'/sites/'$current_project'/httpd/app/yiic migrate down'
 alias y='php /home/'$user'/sites/'$current_project'/httpd/app/yiic'
@@ -42,36 +42,42 @@ alias y='php /home/'$user'/sites/'$current_project'/httpd/app/yiic'
 
 #Vagueria
 alias edit='sudo vim /home/'$user'/.bash_aliases'
-alias vim='sudo vim'
 function run () {
 	source /home/$user/.bash_aliases
-	sudo cp /home/$user/.bash_aliases /home/$user/juako/.bash_aliases
+}
+
+function vim(){
+    stty stop '' -ixoff;
+    vim $1
 }
 
 function w () {
 	cd /home/$user/sites/$current_project/httpd/
-	stty stop '' -ixoff; vim
-	sudo vim
+	stty stop '' -ixoff; 
+	vim $1
 }
 alias bundle='cd /home/'$user'/.vim/bundle/'
+alias tools='cd /home/'$user'/tools'
 
 #git primary commands
 alias ga='git add'
-alias gaa='git add .'
-alias gp='git push'
+alias gaa='git add --all .'
+alias push='git push'
+alias pusho='git push origin'
 alias gl='git log'
 alias s='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gm='git commit -m'
 alias cm='git commit -am'
-alias gb='git branch'
-alias gc='git checkout'
-alias gre='git remote'
+alias branch='git branch'
+alias checkout='git checkout'
+alias checkuoutb='git checkout -b'
+alias remote='git remote'
 alias graa='git remote add'
 alias grr='git remote rm'
-alias gpu='git pull'
-alias gpuo='git pull origin'
+alias pull='git pull'
+alias pullo='git pull origin'
 alias gcl='git clone'
 alias gta='git tag'
 alias gpt='git push tags'
@@ -80,7 +86,7 @@ alias gcb='git checkout -b'
 alias gpo='git push origin '
 alias gme='git merge'
 alias gt='git branch --track'
-alias gf='git fetch'
+alias fetch='git fetch'
 alias gri='git rebase -i'
 alias gbd='git branch -D'
 alias stash='git stash'
@@ -89,10 +95,10 @@ alias apply='git stash apply'
 #Find 
 alias fd="locate -i " 
 
-function fdg() {
+function findg() {
 	find /home/$user/sites/$current_project/httpd/ -iname "*$1*"
 }
-function fdc() {
+function findc() {
 	grep -lir "*$1*" "/home/$user/sites/$current_project/httpd/"
 }
 #NetBeans
@@ -100,3 +106,4 @@ function fdc() {
 
 #Misc
 alias untar='tar -zxvf'
+
