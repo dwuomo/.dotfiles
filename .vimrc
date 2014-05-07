@@ -74,3 +74,8 @@ if executable('ag')
         " Use ag over grep
         set grepprg=ag\ --nogroup\ --nocolor
 endif
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap \ :Ag<SPACE>
+let g:ackprg = 'ag --nogroup --nocolor --column'
