@@ -16,3 +16,12 @@
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/.vim/bundle/the_silver_searcher"]
+	path = .vim/bundle/.vim/bundle/the_silver_searcher
+	url = https://github.com/ggreer/the_silver_searcher.git
+[submodule ".vim/bundle/the_silver_searcher"]
+	path = .vim/bundle/the_silver_searcher
+	url = https://github.com/ggreer/the_silver_searcher.git
+[submodule ".vim/bundle/solarized"]
+	path = .vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

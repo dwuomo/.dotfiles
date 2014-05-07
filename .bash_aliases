@@ -1,9 +1,9 @@
 #General Conf
-user='joaquin'
-current_project="packlink.dev"
+user='dwuomo'
+current_project="old.dev"
 
 #Current project
-alias p='cd ~/sites/'$current_project'/httpd/'
+alias p='cd ~/Sites/www/'$current_project'/httpd/'
 alias tags='bash /home/'$user'/tools/generate-tags-packlink-core'
 
 #System path
@@ -17,6 +17,7 @@ alias escritorio='cd /home/'$user'/Escritorio'
 
 #Bash
 alias cls='clear'
+alias ll='ls -la'
 
 #log
 alias apalog='tail -f /var/log/apache2/error.log'
@@ -46,17 +47,15 @@ function run () {
 	source /home/$user/.bash_aliases
 }
 
-function vim(){
-    stty stop '' -ixoff;
-    vim $1
-}
+
 
 function w () {
-	cd /home/$user/sites/$current_project/httpd/
+	cd ~/Sites/www/$current_project/httpd/
 	stty stop '' -ixoff; 
 	vim $1
 }
 alias bundle='cd /home/'$user'/.vim/bundle/'
+alias dotfiles='cd /home/'$user'/.dotfiles'
 alias tools='cd /home/'$user'/tools'
 
 #git primary commands
