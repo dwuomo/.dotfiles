@@ -79,3 +79,23 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap \ :Ag<SPACE>
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+
+if has("gui_running")
+        " GUI is running or is about to start.
+        " Maximize gvim window.
+        set lines=999 columns=999
+else
+        " This is console Vim.
+        if exists("+lines")
+                set lines=50
+        endif
+        if exists("+columns")
+                set columns=100
+        endif
+endif
+
+"toggle full screen
+if has("gui_running")
+  set guioptions=aiA " Disable toolbar, menu bar, scroll bars
+endif " has("gui_running")
