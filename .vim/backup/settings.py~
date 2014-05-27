@@ -1,5 +1,5 @@
 """
-Django settings for old project.
+Django settings for main  project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!4o2j3*r!zojd_fz$3#ijh%r&6t0)jyj@ftstqms+$yn5m2a#&'
+SECRET_KEY = 'p+oqla%!el#enp_vvv#v8^^3mc(045r(%6h+f$y88rdl_1i1*^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Old.poll',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,24 +48,27 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'old.urls'
+ROOT_URLCONF = 'main.urls'
 
-WSGI_APPLICATION = 'old.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-                'default': {
-                        'ENGINE': 'django.db.backends.mysql', 
-                        'NAME': 'root',
-                        'USER': 'root',
-                        'PASSWORD': 'DB_PASSWORD',
-                        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-                        'PORT': '3306',
-                        }
-                }
+    #'default': {
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #},
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'old',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

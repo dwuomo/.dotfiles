@@ -99,8 +99,3 @@ endif
 if has("gui_running")
   set guioptions=aiA " Disable toolbar, menu bar, scroll bars
 endif " has("gui_running")
-
-" Groups of snippets
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {} 
-let g:snipMate.scope_aliases['php'] = 'php,yii'
