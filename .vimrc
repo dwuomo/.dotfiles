@@ -25,11 +25,11 @@ syntax enable
 
 if has('gui_running')
         set background=light
+        colorscheme solarized
 else
-        set background=dark
+        colorscheme evening
 endif
 
-colorscheme solarized
 
 
 set number
