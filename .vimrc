@@ -13,7 +13,6 @@ let mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-nmap <leader>q :q!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -75,12 +74,11 @@ set tm=500
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
-        set background=light
+        set guioptions=aegimrLt
         colorscheme solarized
-        set guioptions-=T
-        set guioptions+=e
+        set background=light
         set t_Co=256
-        "set guitablabel=%M\ %t
+        set guitablabel=%M\ %t
         " GUI is running or is about to start.
         " Maximize gvim window.
         set lines=999 columns=999
@@ -160,9 +158,6 @@ nnoremap <up> :wincmd k<cr>
 nnoremap <left> :wincmd h<cr>
 nnoremap <right> :wincmd l<cr>
 nnoremap <down> :wincmd j<cr>
-
-nnoremap <C-F> :wincmd h<cr>
-nnoremap <C-G> :wincmd l<cr>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -355,8 +350,3 @@ map <tab> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.pyc$']
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowBookmarks=1
-
-
-
-
-
