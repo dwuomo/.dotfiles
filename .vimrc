@@ -1,5 +1,14 @@
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Pathogen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+execute pathogen#infect()
+filetype plugin indent on
+filetype plugin on
+syntax enable
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -319,7 +328,7 @@ function! <SID>BufcloseCloseIt()
 
    if bufnr("%") == l:currentBufNum
      new
-   endif
+   endif    
 
    if buflisted(l:currentBufNum)
      execute("bdelete! ".l:currentBufNum)
@@ -335,18 +344,10 @@ let g:neocomplcache_enable_at_startup = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Pathogen
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
-filetype plugin indent on
-filetype plugin on
-syntax enable
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NerdTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <tab> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.pyc$']
+let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowBookmarks=1

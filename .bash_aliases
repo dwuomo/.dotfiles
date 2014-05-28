@@ -1,9 +1,9 @@
 #General Conf
-user='dwuomo'
-current_project="old.dev"
+user='joaquin'
+current_project="packlink.dev"
 
 #Current project
-alias p='cd ~/Sites/www/'$current_project'/httpd/'
+alias p='cd ~/sites/'$current_project'/httpd/'
 alias tags='bash /home/'$user'/tools/generate-tags-packlink-core'
 
 #System path

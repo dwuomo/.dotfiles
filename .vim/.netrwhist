@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/joaquin/sites/packlink.dev/httpd/app'
 let g:netrw_dirhist_2='/home/joaquin/sites/packlink.dev/httpd/app/modules'
 let g:netrw_dirhist_3='/home/joaquin/sites/packlink.dev/httpd/app/modules/purchase'
 let g:netrw_dirhist_4='/home/joaquin/sites/packlink.dev/httpd/app/modules/purchase/controllers'
+let g:netrw_dirhist_5='/home/joaquin'
