@@ -1,4 +1,4 @@
-dotfiles repo
+Dotfiles repo
 =============
 
 enjoy!!!! :-)
