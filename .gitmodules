@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/gundo.vim"]
 	path = .vim/bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/delimitmate"]
+	path = .vim/bundle/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
