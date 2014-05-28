@@ -1,6 +1,6 @@
 #General Conf
-user='joaquin'
-current_project="packlink.dev"
+user='dwuomo'
+current_project="tutorial_python.dev"
 
 #Current project
 alias p='cd ~/sites/'$current_project'/httpd/'
@@ -105,4 +105,5 @@ function findc() {
 
 #Misc
 alias untar='tar -zxvf'
+alias sites='cd /home/dwuomo/Sites/www/'
 
