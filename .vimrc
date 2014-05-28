@@ -83,7 +83,7 @@ set tm=500
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
-        set guioptions=aegimrLt
+        set guioptions=aiA
         colorscheme solarized
         set background=light
         "set t_Co=256
@@ -351,3 +351,10 @@ let NERDTreeIgnore=['\.pyc$']
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowBookmarks=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Gundo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <F5> :GundoToggle<CR>
