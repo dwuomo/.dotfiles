@@ -4,7 +4,7 @@ echo "initializing submodules"
 git submodule init
 
 echo "updating submodules"
-git submodule update
+git submodule update --init
 
 echo "creating symlinks"
 ln -s ~/.dotfiles/.vim ~/.vim
