@@ -28,6 +28,11 @@ Install silver searcher (ACK)
 
     apt-get install silversearcher-ag
 
+Install dependencies
+
+    apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+
+Source https://github.com/ggreer/the_silver_searcher
 
 Installation
 ------------
