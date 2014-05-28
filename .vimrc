@@ -77,7 +77,7 @@ if has('gui_running')
         set guioptions=aegimrLt
         colorscheme solarized
         set background=light
-        set t_Co=256
+        "set t_Co=256
         set guitablabel=%M\ %t
         " GUI is running or is about to start.
         " Maximize gvim window.
