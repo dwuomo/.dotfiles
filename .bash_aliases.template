@@ -1,6 +1,6 @@
-#General Conf
-user='dwuomo'
-current_project="tutorial_python.dev"
+#General Configuration
+user=''
+current_project=""
 
 #Current project
 alias p='cd ~/sites/'$current_project'/httpd/'
