@@ -20,9 +20,7 @@ you wish to run the library. You can also run `script/bootstrap` to fetch them a
 * [.pod](http://search.cpan.org/dist/perl/pod/perlpod.pod) -- `Pod::Simple::HTML`
   comes with Perl >= 5.10. Lower versions should install Pod::Simple from CPAN.
 
-Installation
------------
-
+## Installation
    git clone https://github.com/dwuomo/.dotfiles.git
    bash .dotfiles/install.sh
 
