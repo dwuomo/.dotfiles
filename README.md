@@ -3,7 +3,7 @@ Dotfiles repo
 
 enjoy!!!! :-)
 
-Submodules
+Submodules available
 -------
 
 * ack.vim
