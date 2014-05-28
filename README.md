@@ -22,6 +22,13 @@ Submodules
 * vim-airline
 * YangRing
 
+Requirements
+-----------
+Install silver searcher (ACK)
+
+    apt-get install silversearcher-ag
+
+
 Installation
 ------------
 
@@ -29,6 +36,4 @@ Installation
     bash .dotfiles/install.sh
 
 
-Requirements
------------
 
