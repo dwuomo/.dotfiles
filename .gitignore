@@ -1,3 +1,4 @@
 # Vim temp files ignore
 *~
 *.swp
+.bash_aliases
