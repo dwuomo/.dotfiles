@@ -105,7 +105,7 @@ else
 endif
 
 
-" Set utf8 as standard encoding and en_US as the standard language
+" Set utf8 as standard encoding and es_ES the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
@@ -214,6 +214,7 @@ nnoremap e :Errors<cr>
 nnoremap q zt
 nnoremap <c-a> ggVG
 nnoremap <c-cr> :tjump<CR>
+nnoremap ; :
 vnoremap <c-c> "+y
 vnoremap < <gv
 vnoremap > >gv
@@ -353,6 +354,7 @@ let NERDTreeIgnore=['\.pyc$']
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowBookmarks=1
+map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
