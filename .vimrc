@@ -69,6 +69,10 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
+" colorize vertical line at 80 lines for simulate wrap line
+set colorcolumn=80
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -354,6 +358,7 @@ let NERDTreeIgnore=['\.pyc$']
 let NERDTreeBookmarksFile=expand("$HOME/.vim-NERDTreeBookmarks")
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowBookmarks=1
+let NERDTreeWinSize = 60
 map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 
 
