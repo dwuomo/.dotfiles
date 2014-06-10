@@ -98,7 +98,7 @@ if has('gui_running')
         " Maximize gvim window.
         set lines=999 columns=999
 else
-        colorscheme evening
+        colorscheme lucius
         " This is console Vim.
         if exists("+lines")
                 set lines=50
@@ -151,6 +151,9 @@ set wrap "Wrap lines
 
 set number
 set clipboard+=unnamed
+
+" resize vertical buffer
+nnoremap <F12> :vertical resize +80<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -367,3 +370,5 @@ map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <F5> :GundoToggle<CR>
+
+"au! BufEnter * :vertical resize +300
