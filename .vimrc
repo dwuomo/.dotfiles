@@ -98,7 +98,7 @@ if has('gui_running')
         " Maximize gvim window.
         set lines=999 columns=999
 else
-        colorscheme lucius
+        colorscheme evening
         " This is console Vim.
         if exists("+lines")
                 set lines=50
@@ -114,6 +114,9 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+"Switching between dark and light background
+map <F7> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 
 
@@ -370,5 +373,3 @@ map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <F5> :GundoToggle<CR>
-
-"au! BufEnter * :vertical resize +300
