@@ -98,7 +98,8 @@ if has('gui_running')
         " Maximize gvim window.
         set lines=999 columns=999
 else
-        colorscheme evening
+        colorscheme lucius
+        set background=dark
         " This is console Vim.
         if exists("+lines")
                 set lines=50
@@ -179,6 +180,7 @@ nnoremap <up> :wincmd k<cr>
 nnoremap <left> :wincmd h<cr>
 nnoremap <right> :wincmd l<cr>
 nnoremap <down> :wincmd j<cr>
+nnoremap <C-T> :vert sb N<cr>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>

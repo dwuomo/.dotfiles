@@ -3,3 +3,4 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 export PATH=~/.dotfiles/sbt/bin:$PATH
+export TERM=xterm-256color
