@@ -84,7 +84,6 @@ set tm=500
 set cursorcolumn
 set cursorline
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -157,7 +156,7 @@ set number
 set clipboard+=unnamed
 
 " resize vertical buffer
-nnoremap <F12> :vertical resize +80<cr>
+nnoremap <F12> :vertical resize 80<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,7 +167,7 @@ nnoremap <F12> :vertical resize +80<cr>
 map j gj
 map k gk
 
-map <silent> <leader><cr> :noh<cr>
+map <silent> ñ :noh<cr>
 
 map <up> <nop>
 map <down> <nop>
@@ -230,6 +229,7 @@ nnoremap ; :
 vnoremap <c-c> "+y
 vnoremap < <gv
 vnoremap > >gv
+nnoremap <c-r> :edit!<cr>
  
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -262,7 +262,7 @@ if executable('ag')
         set grepprg=ag\ --nogroup\ --nocolor
 endif
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap \ :Ag<SPACE>
 let g:ackprg = 'ag --nogroup --nocolor --column'

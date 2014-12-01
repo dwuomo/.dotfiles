@@ -4,3 +4,4 @@ fi
 
 export PATH=~/.dotfiles/sbt/bin:$PATH
 export TERM=xterm-256color
+export PYTHONPATH=/home/joaquin/sites/api
