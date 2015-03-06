@@ -89,7 +89,7 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
         set guioptions=aiA
-        colorscheme solarized
+        colorscheme pencil
         set background=light
         "set t_Co=256
         set guitablabel=%M\ %t
@@ -97,7 +97,7 @@ if has('gui_running')
         " Maximize gvim window.
         set lines=999 columns=999
 else
-        colorscheme lucius
+        colorscheme lucius 
         set background=dark
         " This is console Vim.
         if exists("+lines")
@@ -221,7 +221,7 @@ nnoremap L $
 nnoremap <C-V> :YRShow<cr>
 nnoremap <C-C> :TComment<cr>
 nnoremap <C-X> :TCommentBlock<cr>
-nnoremap e :Errors<cr>
+nnoremap <leader>e :Errors<cr>
 nnoremap q zt
 nnoremap <c-a> ggVG
 nnoremap <c-cr> :tjump<CR>
@@ -373,5 +373,27 @@ map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Gundo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 nnoremap <F5> :GundoToggle<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => PHP_cs_fixer 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+
+" If php-cs-fixer is in $PATH, you don't need to define line below
+ let g:php_cs_fixer_path = "~/.dotfiles/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
+ let g:php_cs_fixer_level = "all"                 " which level ?
+ let g:php_cs_fixer_config = "default"             " configuration
+ let g:php_cs_fixer_php_path = "php"               " Path to PHP
+" If you want to define specific fixers:
+ let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+ let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+ let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+ let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => syntastic vim plugin 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']

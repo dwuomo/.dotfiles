@@ -5,3 +5,4 @@ fi
 export PATH=~/.dotfiles/sbt/bin:$PATH
 export TERM=xterm-256color
 export PYTHONPATH=/home/joaquin/sites/api
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
