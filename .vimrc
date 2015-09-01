@@ -89,8 +89,8 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
         set guioptions=aiA
-        colorscheme pencil
-        set background=light
+        colorscheme solarized
+        set background=dark
         "set t_Co=256
         set guitablabel=%M\ %t
         " GUI is running or is about to start.
@@ -156,7 +156,7 @@ set number
 set clipboard+=unnamed
 
 " resize vertical buffer
-nnoremap <F12> :vertical resize 80<cr>
+nnoremap <F12> :vertical resize +50<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,13 +173,12 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-nmap <F8> :TagbarToggle<CR>
 
 nnoremap <up> :wincmd k<cr>
 nnoremap <left> :wincmd h<cr>
 nnoremap <right> :wincmd l<cr>
 nnoremap <down> :wincmd j<cr>
-nnoremap <C-T> :vert split  N<cr>
+nnoremap <C-N> :vert split  N<cr>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -198,6 +197,42 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+" Tab navigation as firefox
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
+
+" Tab headings
+function GuiTabLabel()
+    let label = ''
+    let bufnrlist = tabpagebuflist(v:lnum)
+
+    " Add '+' if one of the buffers in the tab page is modified
+    for bufnr in bufnrlist
+        if getbufvar(bufnr, "&modified")
+            let label = '+'
+            break
+        endif
+    endfor
+
+    " Append the number of windows in the tab page if more than one
+    let wincount = tabpagewinnr(v:lnum, '$')
+    if wincount > 1
+        let label .= wincount
+    endif
+    if label != ''
+        let label .= ' '
+    endif
+
+    " Append the buffer name (not full path)
+    return label . "%t"
+endfunction
+
+set guitablabel=%!GuiTabLabel()
+
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -207,6 +242,14 @@ set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+        return ''
+endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -252,6 +295,7 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+nnoremap ,cd :cd %:p:h<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -284,7 +328,7 @@ map <leader>ss :setlocal spell!<cr>
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
+map <leader>q :vsplit ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -293,12 +337,6 @@ map <leader>pp :setlocal paste!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
-
 function! VisualSelection(direction) range
     let l:saved_reg = @"
     execute "normal! vgvy"
@@ -320,14 +358,6 @@ function! VisualSelection(direction) range
     let @" = l:saved_reg
 endfunction
 
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
@@ -377,23 +407,15 @@ nnoremap <F5> :GundoToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => PHP_cs_fixer 
+" => Conque
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
-nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
-
-" If php-cs-fixer is in $PATH, you don't need to define line below
- let g:php_cs_fixer_path = "~/.dotfiles/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
- let g:php_cs_fixer_level = "all"                 " which level ?
- let g:php_cs_fixer_config = "default"             " configuration
- let g:php_cs_fixer_php_path = "php"               " Path to PHP
-" If you want to define specific fixers:
- let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
- let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
- let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
- let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+nnoremap t :ConqueTermSplit zsh<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => syntastic vim plugin 
+" => CTAGS 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:ctags_path="~/.vim/tags/"
+let g:ctags_statusline=1
+let g:ctags_regenerate = 1
+nmap <F8> :TagbarToggle<CR>
+:nnoremap <C-qi> <C-]>
