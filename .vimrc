@@ -92,7 +92,7 @@ if has('gui_running')
         colorscheme solarized
         set background=dark
         "set t_Co=256
-        set guitablabel=%M\ %t
+        "set guitablabel=!%M\ %t
         " GUI is running or is about to start.
         " Maximize gvim window.
         set lines=999 columns=999
@@ -178,7 +178,7 @@ nnoremap <up> :wincmd k<cr>
 nnoremap <left> :wincmd h<cr>
 nnoremap <right> :wincmd l<cr>
 nnoremap <down> :wincmd j<cr>
-nnoremap <C-N> :vert split  N<cr>
+nnoremap <C-N> :vsplit<cr>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -206,32 +206,32 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
 " Tab headings
-function GuiTabLabel()
-    let label = ''
-    let bufnrlist = tabpagebuflist(v:lnum)
+"function GuiTabLabel()
+    "let label = ''
+    "let bufnrlist = tabpagebuflist(v:lnum)
 
-    " Add '+' if one of the buffers in the tab page is modified
-    for bufnr in bufnrlist
-        if getbufvar(bufnr, "&modified")
-            let label = '+'
-            break
-        endif
-    endfor
+    "" Add '+' if one of the buffers in the tab page is modified
+    "for bufnr in bufnrlist
+        "if getbufvar(bufnr, "&modified")
+            "let label = '+'
+            "break
+        "endif
+    "endfor
 
-    " Append the number of windows in the tab page if more than one
-    let wincount = tabpagewinnr(v:lnum, '$')
-    if wincount > 1
-        let label .= wincount
-    endif
-    if label != ''
-        let label .= ' '
-    endif
+    "" Append the number of windows in the tab page if more than one
+    "let wincount = tabpagewinnr(v:lnum, '$')
+    "if wincount > 1
+        "let label .= wincount
+    "endif
+    "if label != ''
+        "let label .= ' '
+    "endif
 
-    " Append the buffer name (not full path)
-    return label . "%t"
-endfunction
+    "" Append the buffer name (not full path)
+    "return label . "%t"
+"endfunction
 
-set guitablabel=%!GuiTabLabel()
+"set guitablabel=%!GuiTabLabel()
 
 
 """"""""""""""""""""""""""""""
